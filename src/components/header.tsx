@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { Menu, Sparkles, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLoadingRouter } from '@/components/loading-provider';
@@ -61,7 +61,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container mx-auto flex h-20 items-center px-4 md:px-6">
-        {/* Mobile Menu Trigger */}
+        {/* Mobile Logo (Left) */}
+        <div className="flex-1 flex justify-start items-center md:hidden">
+            <Link href="/" onClick={handleLogoClick} className="flex items-center">
+              <span className="font-bold font-headline text-2xl tracking-tight">Net Genius</span>
+            </Link>
+        </div>
+
+        {/* Mobile Menu Trigger (Right) */}
         <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -70,26 +77,36 @@ export function Header() {
                   <span className="sr-only">Open Menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="pr-0">
-                <Link href="/" onClick={(e) => { handleLogoClick(e); setIsMobileMenuOpen(false); }} className="mr-6 flex items-center px-6">
-                  <span className="font-bold font-headline text-2xl tracking-tight">Net Genius</span>
-                </Link>
-                <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-                  <div className="flex flex-col space-y-3">
-                    {navLinks.map(({ href, label }) => (
-                      <NavLink 
-                          key={href} 
-                          href={href} 
-                          label={label} 
-                          onClick={() => setIsMobileMenuOpen(false)}
-                      />
-                    ))}
+              <SheetContent side="right" className="w-80 p-0">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <div className="flex flex-col h-full">
+                  {/* Header */}
+                  <div className="flex items-center justify-between p-6 border-b">
+                    <Link href="/" onClick={(e) => { handleLogoClick(e); setIsMobileMenuOpen(false); }} className="flex items-center">
+                      <span className="font-bold font-headline text-2xl tracking-tight">Net Genius</span>
+                    </Link>
                   </div>
-                </div>
-                <div className="px-6">
-                  <Button asChild className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-semibold rounded-xl shadow-lg">
-                      <Link href="/contact" onClick={handleGetAQuoteClick}>Get a Quote</Link>
-                  </Button>
+                  
+                  {/* Navigation Links */}
+                  <div className="flex-1 p-6">
+                    <nav className="flex flex-col space-y-4">
+                      {navLinks.map(({ href, label }) => (
+                        <NavLink 
+                            key={href} 
+                            href={href} 
+                            label={label} 
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        />
+                      ))}
+                    </nav>
+                  </div>
+                  
+                  {/* Footer */}
+                  <div className="p-6 border-t">
+                    <Button asChild className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-semibold rounded-xl shadow-lg">
+                        <Link href="/contact" onClick={handleGetAQuoteClick}>Get a Quote</Link>
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
@@ -115,16 +132,6 @@ export function Header() {
               </Button>
             </div>
         </div>
-
-        {/* Mobile Logo (Centered) */}
-        <div className="flex-1 flex justify-center items-center md:hidden">
-            <Link href="/" onClick={handleLogoClick} className="flex items-center">
-              <span className="font-bold font-headline text-2xl tracking-tight">Net Genius</span>
-            </Link>
-        </div>
-
-        {/* Mobile Spacer to balance the menu trigger */}
-        <div className="w-[52px] flex items-center md:hidden" />
       </div>
     </header>
   );
