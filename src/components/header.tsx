@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 import { Menu, Sparkles, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLoadingRouter } from '@/components/loading-provider';
+import { motion } from 'framer-motion';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -47,6 +48,18 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useLoadingRouter();
 
+  const headerVariants = {
+    hidden: { y: -80, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const,
+      }
+    }
+  };
+
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     router.push('/');
@@ -59,7 +72,12 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 shadow-sm">
+    <motion.header 
+      className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 shadow-sm"
+      variants={headerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="container mx-auto flex h-20 items-center px-4 md:px-6">
         {/* Mobile Logo (Left) */}
         <div className="flex-1 flex justify-start items-center md:hidden">
@@ -133,6 +151,6 @@ export function Header() {
             </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

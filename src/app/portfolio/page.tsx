@@ -1,9 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const portfolioProjects = [
   {
@@ -51,20 +54,72 @@ const portfolioProjects = [
 ];
 
 export default function PortfolioPage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const headerVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
   return (
     <div className="container mx-auto py-20 px-4">
-      <div className="text-center mb-16">
+      <motion.div 
+        className="text-center mb-16"
+        initial="hidden"
+        animate="visible"
+        variants={headerVariants}
+      >
         <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary dark:text-primary-foreground">
           Our Proven Track Record
         </h1>
         <p className="max-w-2xl mx-auto mt-4 text-lg text-muted-foreground">
           We take pride in the solutions we build. Explore some of our recent work.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {portfolioProjects.map((project, index) => (
-          <Card key={index} className="group flex flex-col overflow-hidden border border-border/50 bg-card hover:border-accent/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <motion.div key={index} variants={itemVariants}>
+            <Card className="group flex flex-col overflow-hidden border border-border/50 bg-card hover:border-accent/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
             <div className="relative h-56 overflow-hidden bg-muted">
               <Image
                 src={project.image}
@@ -94,9 +149,10 @@ export default function PortfolioPage() {
                 <span className="text-sm">Source</span>
               </Link>
             </CardFooter>
-          </Card>
+            </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

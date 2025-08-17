@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 import { LoadingProvider } from '@/components/loading-provider';
 
 export const metadata: Metadata = {
-  title: 'FullStack Forge',
+  title: 'Net Genius',
   description: 'Expert Full-Stack Development Services',
 };
 
