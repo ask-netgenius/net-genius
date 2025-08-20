@@ -123,11 +123,13 @@ export default function PortfolioPage() {
             <div className="relative h-56 overflow-hidden bg-muted">
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} - ${project.description.substring(0, 50)}...`}
                 width={600}
                 height={400}
                 className="object-cover w-full h-full"
                 data-ai-hint={project.hint}
+                priority={index < 3}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
             <CardHeader className="relative flex-grow">

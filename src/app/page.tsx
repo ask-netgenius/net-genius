@@ -85,7 +85,10 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0">
+      <section 
+        className="w-full min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0"
+        aria-label="Hero section introducing Net Genius services"
+      >
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
         <motion.div
           className="container mx-auto px-4 relative"
@@ -165,7 +168,10 @@ export default function Home() {
       </section>
 
       {/* Company Overview Section */}
-      <section className="w-full py-20 lg:py-32 bg-gradient-to-b from-background to-muted/20">
+      <section 
+        className="w-full py-20 lg:py-32 bg-gradient-to-b from-background to-muted/20"
+        aria-labelledby="why-choose-us"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -180,7 +186,10 @@ export default function Home() {
             >
               Why Choose Us
             </Badge>
-            <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            <h2 
+              id="why-choose-us" 
+              className="font-headline text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            >
               We Don't Just Code,{" "}
               <span className="text-accent">We Innovate</span>
             </h2>
@@ -258,7 +267,10 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="w-full py-20 lg:py-24 bg-card border-t border-b">
+      <section 
+        className="w-full py-20 lg:py-24 bg-card border-t border-b"
+        aria-labelledby="services-heading"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12"
@@ -267,7 +279,10 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
           >
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            <h2 
+              id="services-heading" 
+              className="font-headline text-3xl md:text-4xl font-bold tracking-tight"
+            >
               Our Core Services
             </h2>
             <p className="max-w-3xl mx-auto mt-4 text-muted-foreground">

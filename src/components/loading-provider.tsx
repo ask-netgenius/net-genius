@@ -41,9 +41,6 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <LoadingContext.Provider value={{ isLoading: loading || isPending, startLoading }}>
-      {(loading || isPending) && (
-        <Progress value={loading || isPending ? 66 : 100} className="fixed top-0 left-0 right-0 h-1 w-full z-[9999] rounded-none bg-transparent" />
-      )}
       {children}
     </LoadingContext.Provider>
   );

@@ -5,10 +5,65 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LoadingProvider } from '@/components/loading-provider';
+import { OrganizationStructuredData, WebsiteStructuredData } from '@/components/structured-data';
+import { LocalBusinessSchema } from '@/components/local-business-schema';
 
 export const metadata: Metadata = {
-  title: 'Net Genius',
-  description: 'Expert Full-Stack Development Services',
+  title: {
+    default: 'Net Genius - Expert Full-Stack Development & DevOps Services',
+    template: '%s | Net Genius'
+  },
+  description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
+  keywords: [
+    'web development',
+    'full stack development', 
+    'DevOps services',
+    'automation',
+    'system design',
+    'Rust programming',
+    'enterprise software',
+    'cloud solutions',
+    'backend development',
+    'scalable applications',
+    'web design',
+    'software development agency'
+  ],
+  authors: [{ name: 'Net Genius Team' }],
+  creator: 'Net Genius',
+  publisher: 'Net Genius',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://netgenius.dev'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://netgenius.dev',
+    title: 'Net Genius - Expert Full-Stack Development & DevOps Services',
+    description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
+    siteName: 'Net Genius',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Net Genius - Expert Full-Stack Development & DevOps Services',
+    description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +89,20 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </LoadingProvider>
+        <OrganizationStructuredData 
+          contactPoint={{
+            telephone: "+1234567890",
+            contactType: "customer service",
+            email: "hello@netgenius.dev"
+          }}
+          sameAs={[
+            "https://github.com/netgenius",
+            "https://linkedin.com/company/netgenius",
+            "https://twitter.com/netgenius"
+          ]}
+        />
+        <WebsiteStructuredData />
+        <LocalBusinessSchema />
       </body>
     </html>
   );
