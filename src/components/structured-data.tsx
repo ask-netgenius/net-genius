@@ -24,15 +24,15 @@ interface OrganizationDataProps {
 
 export function OrganizationStructuredData({
   name = "Net Genius",
-  url = "https://netgenius.dev",
-  logo = "https://netgenius.dev/logo.png",
+  url = "https://net-genius.in",
+  logo = "https://net-genius.in/logo.png",
   description = "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
   address = {
-    streetAddress: "123 Tech Lane",
-    addressLocality: "Tech City",
-    addressRegion: "TC",
-    postalCode: "54321",
-    addressCountry: "US"
+    streetAddress: "National Institute of Technology",
+    addressLocality: "Rourkela",
+    addressRegion: "Odisha",
+    postalCode: "769008",
+    addressCountry: "IN"
   },
   contactPoint,
   sameAs = []
@@ -115,7 +115,7 @@ export function ServiceStructuredData({
   provider = "Net Genius",
   areaServed = "Worldwide", 
   serviceType = "Professional Service",
-  url = "https://netgenius.dev"
+  url = "https://net-genius.in"
 }: ServiceDataProps) {
   const serviceData = {
     "@context": "https://schema.org",
@@ -149,16 +149,16 @@ export function WebsiteStructuredData() {
     "@type": "WebSite",
     "name": "Net Genius",
     "description": "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
-    "url": "https://netgenius.dev",
+    "url": "https://net-genius.in",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://netgenius.dev/search?q={search_term_string}",
+      "target": "https://net-genius.in/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     },
     "publisher": {
       "@type": "Organization", 
       "name": "Net Genius",
-      "url": "https://netgenius.dev"
+      "url": "https://net-genius.in"
     }
   };
 

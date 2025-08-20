@@ -1,57 +1,64 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { cn } from '@/lib/utils';
-import { Toaster } from '@/components/ui/toaster';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { LoadingProvider } from '@/components/loading-provider';
-import { OrganizationStructuredData, WebsiteStructuredData } from '@/components/structured-data';
-import { LocalBusinessSchema } from '@/components/local-business-schema';
+import type { Metadata } from "next";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { LoadingProvider } from "@/components/loading-provider";
+import {
+  OrganizationStructuredData,
+  WebsiteStructuredData,
+} from "@/components/structured-data";
+import { LocalBusinessSchema } from "@/components/local-business-schema";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Net Genius - Expert Full-Stack Development & DevOps Services',
-    template: '%s | Net Genius'
+    default: "Net Genius - Expert Full-Stack Development & DevOps Services",
+    template: "%s | Net Genius",
   },
-  description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
+  description:
+    "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
   keywords: [
-    'web development',
-    'full stack development', 
-    'DevOps services',
-    'automation',
-    'system design',
-    'Rust programming',
-    'enterprise software',
-    'cloud solutions',
-    'backend development',
-    'scalable applications',
-    'web design',
-    'software development agency'
+    "web development",
+    "full stack development",
+    "DevOps services",
+    "automation",
+    "system design",
+    "Rust programming",
+    "enterprise software",
+    "cloud solutions",
+    "backend development",
+    "scalable applications",
+    "web design",
+    "software development agency",
   ],
-  authors: [{ name: 'Net Genius Team' }],
-  creator: 'Net Genius',
-  publisher: 'Net Genius',
+  authors: [{ name: "Net Genius Team" }],
+  creator: "Net Genius",
+  publisher: "Net Genius",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://netgenius.dev'),
+  metadataBase: new URL("https://net-genius.in"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://netgenius.dev',
-    title: 'Net Genius - Expert Full-Stack Development & DevOps Services',
-    description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
-    siteName: 'Net Genius',
+    type: "website",
+    locale: "en_US",
+    url: "https://net-genius.in",
+    title: "Net Genius - Expert Full-Stack Development & DevOps Services",
+    description:
+      "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
+    siteName: "Net Genius",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Net Genius - Expert Full-Stack Development & DevOps Services',
-    description: 'Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.',
+    card: "summary_large_image",
+    title: "Net Genius - Expert Full-Stack Development & DevOps Services",
+    description:
+      "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
   },
   robots: {
     index: true,
@@ -59,9 +66,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
@@ -75,12 +82,19 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body
         className={cn(
-          'font-body antialiased min-h-screen bg-background flex flex-col'
+          "font-body antialiased min-h-screen bg-background flex flex-col"
         )}
       >
         <LoadingProvider>
@@ -89,20 +103,21 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </LoadingProvider>
-        <OrganizationStructuredData 
+        <OrganizationStructuredData
           contactPoint={{
-            telephone: "+1234567890",
+            telephone: "+91-9348840861",
             contactType: "customer service",
-            email: "hello@netgenius.dev"
+            email: "asknetgenius@gmail.com",
           }}
           sameAs={[
             "https://github.com/netgenius",
             "https://linkedin.com/company/netgenius",
-            "https://twitter.com/netgenius"
+            "https://twitter.com/netgenius",
           ]}
         />
         <WebsiteStructuredData />
         <LocalBusinessSchema />
+        <SpeedInsights />
       </body>
     </html>
   );

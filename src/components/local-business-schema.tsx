@@ -27,15 +27,15 @@ interface LocalBusinessSchemaProps {
 export function LocalBusinessSchema({
   name = "Net Genius",
   description = "Professional software development agency specializing in web development, DevOps, automation, system design, and Rust programming services.",
-  url = "https://netgenius.dev",
-  telephone = "+1-234-567-8900",
-  email = "hello@netgenius.dev",
+  url = "https://net-genius.in",
+  telephone = "+91-9348840861",
+  email = "asknetgenius@gmail.com",
   address = {
-    streetAddress: "123 Tech Lane",
-    addressLocality: "Tech City", 
-    addressRegion: "TC",
-    postalCode: "54321",
-    addressCountry: "US"
+    streetAddress: "National Institute of Technology",
+    addressLocality: "Rourkela", 
+    addressRegion: "Odisha",
+    postalCode: "769008",
+    addressCountry: "IN"
   },
   openingHours = [
     "Mo-Fr 09:00-18:00"
