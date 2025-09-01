@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -109,7 +108,7 @@ export default function RootLayout({
         className={`${fascinate.variable} ${ultra.variable} font-body antialiased min-h-screen bg-background flex flex-col`}
       >
         <LoadingProvider>
-          {/* <Header /> */}
+          <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
