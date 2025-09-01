@@ -86,3 +86,11 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.font-fascinate {
+  font-family: var(--font-fascinate), "Fascinate", Arial, sans-serif;
+}
+
+.font-ultra {
+  font-family: var(--font-ultra), "Ultra", Arial, sans-serif;
+}

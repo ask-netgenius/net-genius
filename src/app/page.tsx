@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,12 +11,12 @@ import {
   GitBranch,
   ShieldCheck,
   Zap,
-  Star,
-  Users,
-  Globe,
-  Sparkles,
+  Star
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { AboutUs } from "@/components/landing/AboutUs";
+import { WhatWeDo } from "@/components/landing/WhatWeDo";
+import { WeJustDontCode } from "@/components/landing/WeJustDontCode";
 
 export default function Home() {
   const fadeInUp = {
@@ -27,9 +26,9 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
+        ease: "easeOut" as const
+      }
+    }
   };
 
   const staggerContainer = {
@@ -38,9 +37,9 @@ export default function Home() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
+        delayChildren: 0.2
+      }
+    }
   };
 
   const fadeInScale = {
@@ -50,9 +49,9 @@ export default function Home() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut" as const,
-      },
-    },
+        ease: "easeOut" as const
+      }
+    }
   };
 
   const services = [
@@ -60,33 +59,32 @@ export default function Home() {
       icon: <Code className="w-10 h-10 text-accent" />,
       title: "Full-Stack Development",
       description:
-        "Crafting seamless, end-to-end web solutions with modern technologies for optimal performance and user experience.",
+        "Crafting seamless, end-to-end web solutions with modern technologies for optimal performance and user experience."
     },
     {
       icon: <ShieldCheck className="w-10 h-10 text-accent" />,
       title: "Security & Compliance",
       description:
-        "Implementing robust security measures and ensuring your application complies with industry standards.",
+        "Implementing robust security measures and ensuring your application complies with industry standards."
     },
     {
       icon: <GitBranch className="w-10 h-10 text-accent" />,
       title: "DevOps & Automation",
       description:
-        "Streamlining development pipelines and automating deployment for faster, more reliable releases.",
+        "Streamlining development pipelines and automating deployment for faster, more reliable releases."
     },
     {
       icon: <Zap className="w-10 h-10 text-accent" />,
       title: "Rust Programming",
       description:
-        "Leveraging the power of Rust for building high-performance, memory-safe, and concurrent systems.",
-    },
+        "Leveraging the power of Rust for building high-performance, memory-safe, and concurrent systems."
+    }
   ];
 
   return (
-    <div className="flex flex-col items-center">
-      {/* Hero Section */}
-      <section 
-        className="w-full min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0"
+    <div className="flex min-h-screen justify-center flex-col items-center">
+      <section
+        className=" fixed top-0 -z-10 w-full min-h-screen flex items-center justify-center text-center overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0"
         aria-label="Hero section introducing Net Genius services"
       >
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
@@ -137,7 +135,6 @@ export default function Home() {
             </Button>
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
             variants={staggerContainer}
@@ -167,9 +164,11 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Company Overview Section */}
-      <section 
-        className="w-full py-20 lg:py-32 bg-gradient-to-b from-background to-muted/20"
+      <AboutUs />
+      <WhatWeDo />
+      <WeJustDontCode />
+      {/*    <section
+        className="w-full py-20 lg:py-32 bg-background border-t border-b"
         aria-labelledby="why-choose-us"
       >
         <div className="container mx-auto px-4">
@@ -186,8 +185,8 @@ export default function Home() {
             >
               Why Choose Us
             </Badge>
-            <h2 
-              id="why-choose-us" 
+            <h2
+              id="why-choose-us"
               className="font-headline text-4xl md:text-5xl font-bold tracking-tight mb-4"
             >
               We Don't Just Code,{" "}
@@ -264,10 +263,10 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Services Section */}
-      <section 
+      <section
         className="w-full py-20 lg:py-24 bg-card border-t border-b"
         aria-labelledby="services-heading"
       >
@@ -279,8 +278,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
           >
-            <h2 
-              id="services-heading" 
+            <h2
+              id="services-heading"
               className="font-headline text-3xl md:text-4xl font-bold tracking-tight"
             >
               Our Core Services
