@@ -7,10 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "placehold.co",
         port: "",
-        pathname: "/**",
-      },
+        pathname: "/**"
+      }
     ],
-  },
+    domains: ["picsum.photos", "res.cloudinary.com"]
+  }
 };
 
 export default nextConfig;

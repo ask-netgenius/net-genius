@@ -5,9 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { LoadingProvider } from "@/components/loading-provider";
+import { Fascinate, Ultra } from "next/font/google";
 import {
   OrganizationStructuredData,
-  WebsiteStructuredData,
+  WebsiteStructuredData
 } from "@/components/structured-data";
 import { LocalBusinessSchema } from "@/components/local-business-schema";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -15,7 +16,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   title: {
     default: "Net Genius - Expert Full-Stack Development & DevOps Services",
-    template: "%s | Net Genius",
+    template: "%s | Net Genius"
   },
   description:
     "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     "backend development",
     "scalable applications",
     "web design",
-    "software development agency",
+    "software development agency"
   ],
   authors: [{ name: "Net Genius Team" }],
   creator: "Net Genius",
@@ -39,11 +40,11 @@ export const metadata: Metadata = {
   formatDetection: {
     email: false,
     address: false,
-    telephone: false,
+    telephone: false
   },
   metadataBase: new URL("https://net-genius.in"),
   alternates: {
-    canonical: "/",
+    canonical: "/"
   },
   openGraph: {
     type: "website",
@@ -52,13 +53,13 @@ export const metadata: Metadata = {
     title: "Net Genius - Expert Full-Stack Development & DevOps Services",
     description:
       "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
-    siteName: "Net Genius",
+    siteName: "Net Genius"
   },
   twitter: {
     card: "summary_large_image",
     title: "Net Genius - Expert Full-Stack Development & DevOps Services",
     description:
-      "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide.",
+      "Professional web development, DevOps, automation, system design, and Rust programming services. We build scalable enterprise-grade products and full-stack solutions for businesses worldwide."
   },
   robots: {
     index: true,
@@ -68,13 +69,25 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+      "max-snippet": -1
+    }
+  }
 };
 
+const fascinate = Fascinate({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-fascinate"
+});
+
+const ultra = Ultra({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ultra"
+});
+
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -93,12 +106,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(
-          "font-body antialiased min-h-screen bg-background flex flex-col"
-        )}
+        className={`${fascinate.variable} ${ultra.variable} font-body antialiased min-h-screen bg-background flex flex-col`}
       >
         <LoadingProvider>
-          <Header />
+          {/* <Header /> */}
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
@@ -107,12 +118,12 @@ export default function RootLayout({
           contactPoint={{
             telephone: "+91-9348840861",
             contactType: "customer service",
-            email: "asknetgenius@gmail.com",
+            email: "asknetgenius@gmail.com"
           }}
           sameAs={[
             "https://github.com/netgenius",
             "https://linkedin.com/company/netgenius",
-            "https://twitter.com/netgenius",
+            "https://twitter.com/netgenius"
           ]}
         />
         <WebsiteStructuredData />
